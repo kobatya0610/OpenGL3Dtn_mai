@@ -3,9 +3,33 @@
 
 #include <iostream>
 
+// 課題1push, pop関数を実装しよう
+int score[10] = { 0,0,0,0,0,0,0,0,0,0 };
+int cnt = 0;
+void push(const int& i)
+{
+    score[cnt] = i;
+    ++cnt;
+}
+const int pop()
+{
+    --cnt;
+    return score[cnt];
+}
+
 int main()
 {
     std::cout << "Hello World!\n";
+
+    // 課題1push, pop関数を実装しよう
+    push(10);
+    push(30);
+    std::cout << pop() << "\n";
+    push(20);
+    push(100);
+    pop();
+    std::cout << pop() << "\n";
+    std::cout << pop() << "\n";
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
