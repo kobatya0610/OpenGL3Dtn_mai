@@ -63,5 +63,5 @@ const std::string& Scene::Name() const
 */
 bool Scene::IsVisible() const
 {
-	retunr isVisible;
+	return isVisible;
 }
