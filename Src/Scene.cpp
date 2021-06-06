@@ -75,10 +75,22 @@ const std::string& Scene::Name() const
 @return true 活動中
 @return false 活動停止中
 */
+bool Scene::IsActive() const
+{
+	return isActive;
+}
+
+/*
+シーンの表示状態を調べる
+
+@return true  表示状態.
+@return false 非表示状態
+*/
 bool Scene::IsVisible() const
 {
 	return isVisible;
 }
+
 /*
 シーンスタックを取得する
 
