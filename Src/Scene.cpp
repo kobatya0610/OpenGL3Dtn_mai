@@ -163,3 +163,78 @@ void SceneStack::Replace(ScenePtr p)
 	Current().Initialize();
 	Current().Play();
 }
+
+/*
+現在のシーンを取得する
+
+@return 現在のシーン
+*/
+Scene& SceneStack::Current()
+{
+	return *stack.back();
+}
+
+/*
+現在のシーンを取得する
+
+@return 現在のシーンを取得する
+*/
+const Scene& SceneStack::Current() const
+{
+	return *stack.back();
+}
+
+/*
+シーンの数を取得する
+
+@return スタックに積まれているシーンの数.
+*/
+size_t SceneStack::Size() const
+{
+	return stack.size();
+}
+
+/*
+スタックが空かどうかを調べる
+
+@return true  スタックは空
+@return false スタックに1つ以上のシーンが積まれている
+*/
+bool SceneStack::Empty() const
+{
+	return stack.empty();
+}
+
+/*
+シーンを更新する
+
+@param deltaTime 前回の更新からの経過時間(秒)
+*/
+void SceneStack::Update(float deltaTime)
+{
+	if (!Empty()) 
+	{
+		Current().ProcessInput();
+	}
+	for (ScenePtr& e : stack)
+	{
+		if (e->IsActive())
+		{
+			e->Update(deltaTime);
+		}
+	}
+}
+
+/*
+シーンを描写する
+*/
+void SceneStack::Render()
+{
+	for (ScenePtr& e : stack)
+	{
+		if (e->IsVisible())
+		{
+			e->Render();
+		}
+	}
+}
