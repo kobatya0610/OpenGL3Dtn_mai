@@ -163,7 +163,7 @@ Bind()‚µ‚Ä‚©‚çUnbind()‚·‚é‚Ü‚Å‚ÌŠÔ‚ÅŒÄ‚Ño‚·‚±‚Æ
 
 @Bind(), Unbind(), ResetVertexAttribPointer()
 */
-void VertexArrayObject::VertexAttribPointer(GLuint index, GLint size, 
+void VertexArrayObject::VertexAttribPointer(GLuint index, GLint size,
 	GLenum type, GLboolean normalized, GLsizei stride, size_t offset) const
 {
 	glEnableVertexAttribArray(index);
